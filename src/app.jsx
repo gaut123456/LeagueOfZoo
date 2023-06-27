@@ -13,6 +13,7 @@ export function App() {
     "moudjanitosaurus",
     "noskilijustluck ",
     "Loülou",
+    "greenreaper007",
   ];
   const [allData, setAllData] = useState([]);
   const [gamemode, setGamemode] = useState("tft");
