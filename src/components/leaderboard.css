@@ -57,8 +57,8 @@
 
 .player-name {
     font-weight: bold;
-    margin-bottom: 2px;
-    margin-top: 2px;
+    /*margin-bottom: 2px;*/
+    /*margin-top: 2px;*/
     color: #ffffff;
     display: flex;
 }
@@ -84,12 +84,13 @@
 .player-progress {
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
 }
 
 .progress-container {
-    width: 200px; /* Ajoutez ici la largeur souhaitée */
+    width: 200px;
 }
+
 .container {
     background-color: darkred;
     border-radius: 2px;
@@ -114,7 +115,6 @@
     width: 200px;
 }
 
-
-.streeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak {
+.player-streak {
     width: 100px;
 }

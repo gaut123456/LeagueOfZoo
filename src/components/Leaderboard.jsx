@@ -97,10 +97,10 @@ const Leaderboard = ({ playersDatas }) => {
               </div>
               <div className="player-details">
                 <div>
-                  <p className="player-name">{player[0].summonerName}</p>
-                  <p className="league-points">
+                  <span className="player-name">{player[0].summonerName}</span>
+                  <span className="league-points">
                     League Points: {player[0].leaguePoints}
-                  </p>
+                  </span>
                 </div>
               </div>
               <div className="player-progress">
@@ -112,16 +112,14 @@ const Leaderboard = ({ playersDatas }) => {
                     animateOnRender={true}
                   />
                   <div className="wins-losses">
-                    <p className="player-wins">Wins: {player[0].wins}</p>
-                    <p className="player-losses">Losses: {player[0].losses}</p>
+                    <span className="player-wins">Wins: {player[0].wins}</span>
+                    <span className="player-losses">Losses: {player[0].losses}</span>
                   </div>
                 </div>
               </div>
-              <div className="streeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak">
-                <div className="player-streak">
-                  {player[0].hotStreak && <span className="hot-streak">🔥</span>}
-                </div>
-              </div>
+              {/*<div className="player-streak">*/}
+              {/*  {player[0].hotStreak && <span className="hot-streak">🔥</span>}*/}
+              {/*</div>*/}
             </li>
           );
         })}
