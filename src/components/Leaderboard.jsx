@@ -56,7 +56,7 @@ const Leaderboard = ({ playersDatas }) => {
   }, []);
 
   const calculateWinrate = (player) => {
-    const { wins, losses } = player.data[0];
+    const { wins, losses } = player[0];
     const winrate = (wins / (wins + losses)) * 100;
     return parseFloat(winrate.toFixed(0));
   };
@@ -64,15 +64,15 @@ const Leaderboard = ({ playersDatas }) => {
   // Sort the players based on tier, rank, and league points
   const sortedPlayers = playersDatas.sort((a, b) => {
     // Sort by tier
-    if (a.data[0].tier !== b.data[0].tier) {
-      return tierOrder[a.data[0].tier] - tierOrder[b.data[0].tier];
+    if (a[0].tier !== b[0].tier) {
+      return tierOrder[a[0].tier] - tierOrder[b[0].tier];
     }
     // Sort by rank
-    if (a.data[0].rank !== b.data[0].rank) {
-      return rankOrder[a.data[0].rank] - rankOrder[b.data[0].rank];
+    if (a[0].rank !== b[0].rank) {
+      return rankOrder[a[0].rank] - rankOrder[b[0].rank];
     }
     // Sort by league points
-    return b.data[0].leaguePoints - a.data[0].leaguePoints;
+    return b[0].leaguePoints - a[0].leaguePoints;
   });
 
   return (
@@ -88,20 +88,18 @@ const Leaderboard = ({ playersDatas }) => {
                 <span
                   className="tier"
                   style={{
-                    backgroundColor: getTierBackgroundColor(
-                      player.data[0].tier
-                    ),
+                    backgroundColor: getTierBackgroundColor(player[0].tier),
                   }}
                 >
-                  {player.data[0].tier}&nbsp;
-                  {player.data[0].rank}
+                  {player[0].tier}&nbsp;
+                  {player[0].rank}
                 </span>
               </div>
               <div className="player-details">
                 <div>
-                  <p className="player-name">{player.data[0].summonerName}</p>
+                  <p className="player-name">{player[0].summonerName}</p>
                   <p className="league-points">
-                    League Points: {player.data[0].leaguePoints}
+                    League Points: {player[0].leaguePoints}
                   </p>
                 </div>
               </div>
@@ -116,9 +114,11 @@ const Leaderboard = ({ playersDatas }) => {
                 </div>
               </div>
               <div className="player-streak">
-                {player.data[0].hotStreak && (
-                  <span className="hot-streak">🔥</span>
-                )}
+                {player[0].hotStreak && <span className="hot-streak">🔥</span>}
+              </div>
+              <div>
+                <p className="player-wins">Wins: {player[0].wins}</p>
+                <p className="player-losses">Losses: {player[0].losses}</p>
               </div>
             </li>
           );

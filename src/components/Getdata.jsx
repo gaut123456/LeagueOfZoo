@@ -9,10 +9,21 @@ const GetData = (props) => {
       .get(`http://localhost:3000/${props.gamemode}/summoner/${props.player}`)
       .then((res) => {
         if (props.gamemode === "lol") {
+          console.log(res.data);
+          const filteredData = res.data.data.filter(
+            (item) => item.queueType === "RANKED_SOLO_5x5"
+          );
+
+          setData(filteredData);
+          props.setAllData((prevData) => [...prevData, filteredData]);
+        } else if (props.gamemode === "tft") {
+          console.log(res.data);
+          const filteredData = res.data.data.filter(
+            (item) => item.queueType === "RANKED_TFT"
+          );
+          setData(filteredData);
+          props.setAllData((prevData) => [...prevData, filteredData]);
         }
-        const newData = res.data;
-        setData(newData);
-        props.setAllData((prevData) => [...prevData, newData]);
       })
       .catch((err) => {
         console.log(err);
