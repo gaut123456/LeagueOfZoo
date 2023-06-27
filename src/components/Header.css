@@ -17,3 +17,15 @@ header {
     height: 4rem;
     box-sizing: border-box;
 }
+
+.main-head button {
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none; /* Supprimer le contour du bouton */
+}
+
+.main-head button.selected {
+    color: #ffbf00; /* Mettre la couleur en #ffbf00 ici */
+}

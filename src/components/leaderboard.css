@@ -20,7 +20,32 @@
 .player-list {
     list-style-type: none;
     padding: 20px 0 0 0;
+    overflow: scroll;
+    height: 700px;
 }
+
+.player-list::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}
+
+.player-list::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.player-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Pour Firefox */
+.player-list {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+
+
+
 
 .player-item {
     display: flex;
@@ -42,7 +67,7 @@
 .tier {
     display: inline-block;
     padding: 5px 10px;
-    color: #ffffff;
+    color: #000000;
     font-weight: bold;
     border-radius: 5px;
     width: 100%;

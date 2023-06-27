@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
 import "../app.jsx";
-import { useState } from "preact/hooks";
 
 const Header = ({ setGamemode }) => {
+  const [selectedOption, setSelectedOption] = useState("tft");
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setGamemode(option);
+  };
+
   return (
-    <header>
-      <div className="main-head">
-        <a href="#" onClick={() => setGamemode("lol")}>
-          LOL
-        </a>
-        <a href="#" onClick={() => setGamemode("tft")}>
-          TFT
-        </a>
-        <a href="#">LOL-2V2V2V2</a>
-      </div>
-    </header>
+      <header>
+        <div className="main-head">
+          <button
+              onClick={() => handleOptionClick("lol")}
+              className={selectedOption === "lol" ? "selected" : ""}
+          >
+            LOL
+          </button>
+          <button
+              onClick={() => handleOptionClick("tft")}
+              className={selectedOption === "tft" ? "selected" : ""}
+          >
+            TFT
+          </button>
+          <button
+              onClick={() => handleOptionClick("2v2v2v2")}
+              className={selectedOption === "2v2v2v2" ? "selected" : ""}
+          >
+            2V2V2V2
+          </button>
+        </div>
+      </header>
   );
 };
 
