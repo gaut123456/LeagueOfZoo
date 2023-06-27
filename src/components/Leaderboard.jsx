@@ -111,14 +111,16 @@ const Leaderboard = ({ playersDatas }) => {
                     barContainerClassName="container"
                     animateOnRender={true}
                   />
+                  <div className="wins-losses">
+                    <p className="player-wins">Wins: {player[0].wins}</p>
+                    <p className="player-losses">Losses: {player[0].losses}</p>
+                  </div>
                 </div>
               </div>
-              <div className="player-streak">
-                {player[0].hotStreak && <span className="hot-streak">🔥</span>}
-              </div>
-              <div>
-                <p className="player-wins">Wins: {player[0].wins}</p>
-                <p className="player-losses">Losses: {player[0].losses}</p>
+              <div className="streeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak">
+                <div className="player-streak">
+                  {player[0].hotStreak && <span className="hot-streak">🔥</span>}
+                </div>
               </div>
             </li>
           );

@@ -35,7 +35,8 @@
 
 .player-rank {
     margin-right: 30px;
-    flex: 0 0 80px; /* Adjust the width as needed */
+    display: flex;
+    width: 200px;
 }
 
 .tier {
@@ -44,12 +45,14 @@
     color: #ffffff;
     font-weight: bold;
     border-radius: 5px;
+    width: 100%;
 }
 
 .player-details {
     flex-grow: 1;
     display: flex;
     align-items: center;
+    width: 150px;
 }
 
 .player-name {
@@ -57,6 +60,7 @@
     margin-bottom: 2px;
     margin-top: 2px;
     color: #ffffff;
+    display: flex;
 }
 
 .player-item .logo {
@@ -64,6 +68,7 @@
 }
 
 .league-points {
+    display: flex;
     color: #cccccc;
 }
 .hot-streak {
@@ -88,4 +93,28 @@
 .container {
     background-color: darkred;
     border-radius: 2px;
+}
+
+.player-wins {
+    color: deepskyblue;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.player-losses {
+    color: red;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.wins-losses {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
+
+.streeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak {
+    width: 100px;
 }
