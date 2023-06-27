@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "preact/hooks";
 import "./leaderboard.css";
+import ProgressBar from "@ramonak/react-progress-bar";
+
 const Leaderboard = ({ playersDatas }) => {
   const [isVisible, setIsVisible] = useState(false);
   const tierOrder = {
@@ -48,10 +50,16 @@ const Leaderboard = ({ playersDatas }) => {
     // Set isVisible to true after a short delay to trigger the animation
     const timeout = setTimeout(() => {
       setIsVisible(true);
-    }, 150);
+    }, 300);
 
     return () => clearTimeout(timeout);
   }, []);
+
+  const calculateWinrate = (player) => {
+    const { wins, losses } = player.data[0];
+    const winrate = (wins / (wins + losses)) * 100;
+    return parseFloat(winrate.toFixed(0));
+  };
 
   // Sort the players based on tier, rank, and league points
   const sortedPlayers = playersDatas.sort((a, b) => {
@@ -71,27 +79,50 @@ const Leaderboard = ({ playersDatas }) => {
     <div className={`leaderboard ${isVisible ? "visible" : ""}`}>
       <h1>League Of Zoo</h1>
       <ul className="player-list">
-        {sortedPlayers.map((player, index) => (
-          <li key={index} className="player-item">
-            <div className="player-rank">
-              <span
-                className="tier"
-                style={{
-                  backgroundColor: getTierBackgroundColor(player.data[0].tier),
-                }}
-              >
-                {player.data[0].tier}&nbsp;
-                {player.data[0].rank}
-              </span>
-            </div>
-            <div className="player-details">
-              <p className="player-name">{player.data[0].summonerName}</p>
-              <p className="league-points">
-                League Points: {player.data[0].leaguePoints}
-              </p>
-            </div>
-          </li>
-        ))}
+        {sortedPlayers.map((player, index) => {
+          const winrate = calculateWinrate(player);
+          console.log(winrate);
+          return (
+            <li key={index} className="player-item">
+              <div className="player-rank">
+                <span
+                  className="tier"
+                  style={{
+                    backgroundColor: getTierBackgroundColor(
+                      player.data[0].tier
+                    ),
+                  }}
+                >
+                  {player.data[0].tier}&nbsp;
+                  {player.data[0].rank}
+                </span>
+              </div>
+              <div className="player-details">
+                <div>
+                  <p className="player-name">{player.data[0].summonerName}</p>
+                  <p className="league-points">
+                    League Points: {player.data[0].leaguePoints}
+                  </p>
+                </div>
+              </div>
+              <div className="player-progress">
+                <div className="progress-container">
+                  <ProgressBar
+                    completed={winrate}
+                    bgColor="#548CB4"
+                    barContainerClassName="container"
+                    animateOnRender={true}
+                  />
+                </div>
+              </div>
+              <div className="player-streak">
+                {player.data[0].hotStreak && (
+                  <span className="hot-streak">🔥</span>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

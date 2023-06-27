@@ -1,0 +1,20 @@
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.main-head {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: #151a30;
+    color: #fff;
+    height: 4rem;
+    box-sizing: border-box;
+}
