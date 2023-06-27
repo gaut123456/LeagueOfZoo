@@ -80,10 +80,14 @@ const Leaderboard = ({ playersDatas }) => {
       <h1>League Of Zoo</h1>
       <ul className="player-list">
         {sortedPlayers.map((player, index) => {
+          const isHotStreak = player[0].hotStreak;
           const winrate = calculateWinrate(player);
           console.log(winrate);
           return (
-            <li key={index} className="player-item">
+            <li
+              key={index}
+              className={`player-item ${isHotStreak ? "hot-streak" : ""}`}
+            >
               <div className="player-rank">
                 <span
                   className="tier"
@@ -110,16 +114,18 @@ const Leaderboard = ({ playersDatas }) => {
                     bgColor="#548CB4"
                     barContainerClassName="container"
                     animateOnRender={true}
+                    labelAlignment="center"
+                    transitionTimingFunction="ease-in-out"
+                    initCompletedOnAnimation={10}
                   />
                   <div className="wins-losses">
                     <span className="player-wins">Wins: {player[0].wins}</span>
-                    <span className="player-losses">Losses: {player[0].losses}</span>
+                    <span className="player-losses">
+                      Losses: {player[0].losses}
+                    </span>
                   </div>
                 </div>
               </div>
-              {/*<div className="player-streak">*/}
-              {/*  {player[0].hotStreak && <span className="hot-streak">🔥</span>}*/}
-              {/*</div>*/}
             </li>
           );
         })}

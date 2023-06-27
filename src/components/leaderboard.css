@@ -44,14 +44,14 @@
 }
 
 
-
-
-
 .player-item {
+    border-width: 3px 3px 3px 3px;
+    border-style: solid;
+    border-color: #0D0628 #0D0628 #0D0628 #0D0628;
     display: flex;
     align-items: center;
     padding: 10px 20px 10px 20px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     background-color: #151a30;
     border-radius: 5px;
     width: 100%;
@@ -97,13 +97,9 @@
     color: #cccccc;
 }
 .hot-streak {
-    display: inline-block;
-    padding: 5px 10px;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: #ffbf00;
-    margin-left: 10px;
+    border-width: 3px 3px 3px 3px;
+    border-style: solid;
+    border-color: #F79824 #F79824 #F79824 #F79824;
 }
 
 .player-progress {
