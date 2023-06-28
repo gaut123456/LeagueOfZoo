@@ -82,7 +82,6 @@ const Leaderboard = ({ playersDatas }) => {
         {sortedPlayers.map((player, index) => {
           const isHotStreak = player[0].hotStreak;
           const winrate = calculateWinrate(player);
-          console.log(winrate);
           return (
             <li
               key={index}
@@ -124,6 +123,35 @@ const Leaderboard = ({ playersDatas }) => {
                       Losses: {player[0].losses}
                     </span>
                   </div>
+                  {player[0].queueType === "RANKED_SOLO_5x5" ? (
+                    <div className="opgg-lol">
+                      <a
+                        href={`https://euw.op.gg/summoner/userName=${player[0].summonerName}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <img
+                          className={`opgg-lol-img`}
+                          src="https://lh3.googleusercontent.com/t7qP0LctzmCZKzP22Enh4r8CdaAyhxzwW400RM19es7pzomf7QzarZkq9WLLuyQhtwmwYTv_bLrN4BGsjkckGDKs=w128-h128-e365-rj-sc0x00ffffff"
+                          alt="opgg"
+                        />
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="opgg-tft">
+                      <a
+                        href={`https://tft.op.gg/summoners/euw/${player[0].summonerName}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <img
+                          className={`opgg-tft-img`}
+                          src={`https://lh3.googleusercontent.com/t7qP0LctzmCZKzP22Enh4r8CdaAyhxzwW400RM19es7pzomf7QzarZkq9WLLuyQhtwmwYTv_bLrN4BGsjkckGDKs=w128-h128-e365-rj-sc0x00ffffff`}
+                          alt="opgg"
+                        />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </li>

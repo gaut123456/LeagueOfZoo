@@ -139,3 +139,17 @@
 .player-streak {
     width: 100px;
 }
+
+.opgg-tft-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 15%;
+}
+
+.opgg-lol-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 15%;
+}

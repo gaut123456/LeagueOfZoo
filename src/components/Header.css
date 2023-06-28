@@ -1,31 +1,51 @@
+/* header.css */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
+    border-width: 2px;
+    border-color: #0D0628 #0D0628 #0D0628 #0D0628;
+    border-style: solid;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: #0A1428;
+    height: 4rem;
     width: 100%;
-    z-index: 100;
+    top: 0;
+    position: sticky;
+    border-radius: 5px;
 }
 
 .main-head {
-    font-weight: bold;
-    font-size: 1.2rem;
+    border-width: 3px;
+    border-color: #0D0628 #0D0628 #0D0628 #0D0628;
+    border-style: solid;
+    border-radius: 5px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 0 1rem;
-    background-color: #151a30;
+    background-color: #0A1428;
     height: 4rem;
-    box-sizing: border-box;
+    width: 100%;
+    top: 0;
+    position: sticky;
 }
 
 .main-head button {
-    color: #fff;
-    background: none;
-    border: none;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
     cursor: pointer;
-    outline: none; /* Supprimer le contour du bouton */
+    transition: border-color 0.25s;
+    outline: none;
+    color: #ffffff;
 }
 
 .main-head button.selected {
-    color: #ffbf00; /* Mettre la couleur en #ffbf00 ici */
+    color: #ffbf00;
 }
