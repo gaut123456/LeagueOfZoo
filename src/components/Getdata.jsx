@@ -6,7 +6,7 @@ const GetData = (props) => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:3000/${props.gamemode}/summoner/${props.player}`)
+      .get(`http://130.185.119.164:3000/${props.gamemode}/summoner/${props.player}`)
       .then((res) => {
         if (props.gamemode === "lol") {
           const filteredData = res.data.data.filter(
